@@ -1,0 +1,38 @@
+
+}
+java:S5854B"gUse the CANON_EQ flag with "Pattern.compile(pattern, CANON_EQ).matcher(input).replaceAll(replacement)".(Æ€®¿
+^
+java:S5361B"HReplace this call to "replaceAll()" by a call to the "replace()" method.(Æ€®¿
+}
+java:S5854C"gUse the CANON_EQ flag with "Pattern.compile(pattern, CANON_EQ).matcher(input).replaceAll(replacement)".(®®ğ¨
+^
+java:S5361C"HReplace this call to "replaceAll()" by a call to the "replace()" method.(®®ğ¨
+‚
+java:S5854E"gUse the CANON_EQ flag with "Pattern.compile(pattern, CANON_EQ).matcher(input).replaceAll(replacement)".(ö…Ç»úÿÿÿÿ
+c
+java:S5361E"HReplace this call to "replaceAll()" by a call to the "replace()" method.(ö…Ç»úÿÿÿÿ
+‚
+java:S5854F"gUse the CANON_EQ flag with "Pattern.compile(pattern, CANON_EQ).matcher(input).replaceAll(replacement)".(ğíÑ«ıÿÿÿÿ
+c
+java:S5361F"HReplace this call to "replaceAll()" by a call to the "replace()" method.(ğíÑ«ıÿÿÿÿ
+‚
+java:S5854G"gUse the CANON_EQ flag with "Pattern.compile(pattern, CANON_EQ).matcher(input).replaceAll(replacement)".(Ü…ÃÚûÿÿÿÿ
+c
+java:S5361G"HReplace this call to "replaceAll()" by a call to the "replace()" method.(Ü…ÃÚûÿÿÿÿ
+c
+java:S5361H"HReplace this call to "replaceAll()" by a call to the "replace()" method.(æ¤‡ üÿÿÿÿ
+c
+java:S5361I"HReplace this call to "replaceAll()" by a call to the "replace()" method.(Ä«Éãûÿÿÿÿ
+c
+java:S5361J"HReplace this call to "replaceAll()" by a call to the "replace()" method.(Ö¤òÄúÿÿÿÿ
+]
+java:S5361K"HReplace this call to "replaceAll()" by a call to the "replace()" method.(ğÒ"
+c
+java:S5361L"HReplace this call to "replaceAll()" by a call to the "replace()" method.(±œÉ‡úÿÿÿÿ
+^
+java:S5361M"HReplace this call to "replaceAll()" by a call to the "replace()" method.(ĞÉÓ
+c
+java:S5361N"HReplace this call to "replaceAll()" by a call to the "replace()" method.(¿Íäûÿÿÿÿ
+c
+java:S5361O"HReplace this call to "replaceAll()" by a call to the "replace()" method.(°›ïÖşÿÿÿÿ
+V	java:S125`"<This block of commented-out lines of code should be removed.(šœÎÅüÿÿÿÿ

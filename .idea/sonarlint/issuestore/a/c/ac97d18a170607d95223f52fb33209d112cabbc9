@@ -1,0 +1,17 @@
+
+C
+java:S1481F"(Remove this unused "uri" local variable.(¦Ç‹ùÿÿÿÿÿ
+\
+java:S2153O"FRemove the boxing to "Long"; The argument is already of the same type.(Ï€§è
+G
+java:S1481"1Remove this unused "responseType" local variable.(”÷£’
+]
+java:S1858„"A"getBody" returns a string, there's no need to call "toString()".(Ôœº–ýÿÿÿÿ
+
+java:S1192?"dDefine a constant instead of duplicating this literal "ws.xgracco.return.get.token.failure" 3 times.(õ•Ž¯þÿÿÿÿ
+u
+java:S1488O"_Immediately return this expression instead of assigning it to the temporary variable "retorno".(Ï€§è
+z
+java:S1488j"_Immediately return this expression instead of assigning it to the temporary variable "retorno".(¿˜‰ úÿÿÿÿ
+t
+java:S1488†"]Immediately return this expression instead of assigning it to the temporary variable "token".(£ÙŸá

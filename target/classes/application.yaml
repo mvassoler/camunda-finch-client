@@ -1,0 +1,29 @@
+server:
+  port: 9092
+
+spring:
+  application:
+    name: camunda-finch-client
+  output:
+    ansi:
+      enabled: always
+  profiles:
+    active: local
+
+camunda:
+  bpm:
+    client:
+      base-url: http://localhost:8080/engine-rest
+
+services:
+  resiliencia:
+    periodo: 2000
+    tentativas: 3
+
+jobs:
+  sincronismo:
+    tempo-conexao: ${REST_CONNECT_TIMEOUT:120000}
+    tempo-espera: ${REST_TIMEOUT:300000}
+    username: ${XGRACCO_USERNAME:admin_finch}
+    password: ${XGRACCO_PASSWORD:zsvAlro20rOPG350k0BGpA==}
+    xgracco-url: ${XGRACCO_URL:http://localhost:8989}
