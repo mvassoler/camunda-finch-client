@@ -1,7 +1,9 @@
 package com.finch.camunda.client.tasks;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.finch.camunda.client.domains.dtos.integracao.DecisorEntityDTO;
 import com.finch.camunda.client.domains.dtos.integracao.IntegretionDecisorDTO;
+import com.finch.camunda.client.domains.enums.EnumStatusDecisor;
 import com.finch.camunda.client.legacy.EncryptionUtil;
 import com.finch.camunda.client.services.IntegracaoXgraccoService;
 import java.util.ArrayList;
@@ -44,7 +46,18 @@ public class ProcessDecisorEntity implements ExternalTaskHandler {
         }
         if(Objects.nonNull(integracao)){
             if(Objects.nonNull(integracao.getDecisorEntities()) && CollectionUtils.isNotEmpty(integracao.getDecisorEntities())){
-                //TODO - IMPLEMENTAR O PROCESSAMENTO
+                integracao.getDecisorEntities().forEach(decisorEntityDTO -> {
+                    try {
+                        DecisorEntityDTO retorno = this.service.executeDecisorEntity(decisorEntityDTO);
+                        if(retorno.getEnumStatusDecisor().equals(EnumStatusDecisor.EXECUTADO)){
+                            log.info("Sucesso na execução do DecisorEntity do ID " + decisorEntityDTO.getId());
+                        }else{
+                            log.info("Falha na execução do DecisorEntity do ID " + decisorEntityDTO.getId());
+                        }
+                    } catch (Exception e) {
+                        log.error("Falha na conversão da String em Json. Processo ProcessDecisorEntity. Mensagem: " + e.getMessage(), e);
+                    }
+                });
             }
         }
         VariableMap variaveis = Variables.createVariables();

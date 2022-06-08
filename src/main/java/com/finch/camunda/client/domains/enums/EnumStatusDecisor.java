@@ -6,7 +6,8 @@ public enum EnumStatusDecisor implements PersistentEnum {
 
     GERADO(1, "Gerado"),
     EXECUTADO(2, "Executado"),
-    CANCELADO(3, "Cancelado");
+    CANCELADO(3, "Cancelado"),
+    PROCESSANDO(4, "Processando");;
 
     private final int id;
     private final String descricao;

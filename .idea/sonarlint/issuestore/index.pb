@@ -45,8 +45,6 @@ r
 Bsrc/main/java/com/finch/camunda/client/domains/filters/Filter.java,2/5/25f67911d3b12e3da7a7d528db86c04340801ca6
 x
 Hsrc/main/java/com/finch/camunda/client/domains/enums/PersistentEnum.java,a/7/a714c1022981ce591b9e5f340c9792a4fd768b75
-{
-Ksrc/main/java/com/finch/camunda/client/domains/enums/EnumStatusDecisor.java,3/7/37e77647b24ddfbcdc383ac25a426c791e7f0cef
 
 Osrc/main/java/com/finch/camunda/client/domains/filters/DecisorEntityFilter.java,2/f/2fdaac1d8e17d2d832f89411b80bf50494dd584d
 z
@@ -61,7 +59,3 @@ Hsrc/main/java/com/finch/camunda/client/domains/dtos/ErrorDetailsDTO.java,b/4/b
 Tsrc/main/java/com/finch/camunda/client/domains/dtos/integracao/DecisorEntityDTO.java,e/3/e33f8af2cb6c466a2d32eb061a9e482b3732b6cb
 ‰
 Ysrc/main/java/com/finch/camunda/client/domains/dtos/integracao/IntegretionDecisorDTO.java,f/6/f64c52e19bb5a60cf2a6db0cc9d242860faf1470
-}
-Msrc/main/java/com/finch/camunda/client/services/IntegracaoXgraccoService.java,8/6/862fccd07b192ca98624e729ce4773a0e19b401c
-w
-Gsrc/main/java/com/finch/camunda/client/ws/xgracco/XgraccoWsService.java,a/c/ac97d18a170607d95223f52fb33209d112cabbc9

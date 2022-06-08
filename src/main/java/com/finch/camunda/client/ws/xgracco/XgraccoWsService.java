@@ -62,16 +62,17 @@ public class XgraccoWsService {
         if (Objects.isNull(token)) {
             throw new IntegrationException(this.messageLocale.validationMessageSource("ws.xgracco.return.get.token.failure"));
         }
-        String urlApi = this.xgraccoUrl + "/api/decisors/entity/count";
+        String urlApi = this.xgraccoUrl + "/api/decisors/entity/count?status=GERADO";
         log.info("Integração X-Gracco: Contagem dos Decisors com status GERADO na URL " + urlApi + ".");
-        Set<EnumStatusDecisor> status = new HashSet<>();
-        status.add(EnumStatusDecisor.GERADO);
-        DecisorEntityFilter filter = DecisorEntityFilter.builder().status(status).build();
+        //List<String> status = new ArrayList<>();
+        //status.add(EnumStatusDecisor.GERADO.toString());
+        //DecisorEntityFilter filter = DecisorEntityFilter.builder().status(status).build();
         URI uri = new URI(urlApi);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setBearerAuth(token);
-        HttpEntity<DecisorEntityFilter> request = new HttpEntity<>(filter, headers);
+        //headers.put("status", status);
+        HttpEntity<String> request = new HttpEntity<>("parameters", headers);
         ParameterizedTypeReference<Long> responseType = new ParameterizedTypeReference<>() {
         };
         return this.retryTemplate.execute(c -> {
@@ -93,7 +94,7 @@ public class XgraccoWsService {
         if (Objects.isNull(token)) {
             throw new IntegrationException(this.messageLocale.validationMessageSource("ws.xgracco.return.get.token.failure"));
         }
-        String urlApi = this.xgraccoUrl + "/api/decisors/entity/status/" + EnumStatusDecisor.GERADO;
+        String urlApi = this.xgraccoUrl + "/api/decisors/entity/status/gerado";
         log.info("Integração X-Gracco: Busca dos Decisors com status GERADO na URL " + urlApi + ".");
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -113,6 +114,31 @@ public class XgraccoWsService {
     public List<DecisorEntityDTO> recoverGetDecisorEntities(String message, RetryContext context) {
         log.error(message, context.getLastThrowable());
         return new ArrayList<>();
+    }
+
+    public DecisorEntityDTO executeDecisorEntity(DecisorEntityDTO decisorEntityDTO) throws JsonProcessingException, URISyntaxException {
+        String token = this.buscarTokenAutenticacao();
+        if (Objects.isNull(token)) {
+            throw new IntegrationException(this.messageLocale.validationMessageSource("ws.xgracco.return.get.token.failure"));
+        }
+        String urlApi = this.xgraccoUrl + "/api/decisors/entity/execute";
+        log.info("Integração X-Gracco: Executar um DecisorEntity na URL " + urlApi + ".");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setBearerAuth(token);
+        HttpEntity<DecisorEntityDTO> request = new HttpEntity<>(decisorEntityDTO, headers);
+        return this.retryTemplate.execute(c -> {
+                    ResponseEntity<DecisorEntityDTO> result  = restTemplate.postForEntity(urlApi, request, DecisorEntityDTO.class);
+                    DecisorEntityDTO retorno = result.getBody();
+                    return retorno;
+                },
+                context -> this.recoverExecuteDecisorEntities(this.messageLocale.validationMessageSource("ws.xgracco.return.post.execute.decisor"), context)
+        );
+    }
+
+    public DecisorEntityDTO recoverExecuteDecisorEntities(String message, RetryContext context) {
+        log.error(message, context.getLastThrowable());
+        return new DecisorEntityDTO();
     }
 
     public String buscarTokenAutenticacao() throws URISyntaxException, JsonProcessingException {

@@ -3,6 +3,7 @@ package com.finch.camunda.client.services;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.finch.camunda.client.domains.dtos.integracao.DecisorEntityDTO;
 import com.finch.camunda.client.domains.dtos.integracao.IntegretionDecisorDTO;
+import com.finch.camunda.client.domains.enums.EnumStatusDecisor;
 import com.finch.camunda.client.ws.xgracco.XgraccoWsService;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -29,5 +30,13 @@ public class IntegracaoXgraccoService {
                 .decisorEntities(decisors)
                 .build();
         return integration;
+    }
+
+    public DecisorEntityDTO executeDecisorEntity(DecisorEntityDTO decisorEntityDTO) throws URISyntaxException, JsonProcessingException {
+        if(decisorEntityDTO.getEnumStatusDecisor().equals(EnumStatusDecisor.PROCESSANDO)) {
+            return this.service.executeDecisorEntity(decisorEntityDTO);
+        }else{
+            return decisorEntityDTO;
+        }
     }
 }
